@@ -18,7 +18,7 @@ class EventServiceProvider extends ServiceProvider
         Registered::class => [
             SendEmailVerificationNotification::class,
         ],
-    ];
+    ];  //注册时间的监听器
 
     /**
      * Register any events for your application.
