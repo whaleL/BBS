@@ -5,6 +5,10 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Http\Requests\UserRequest;
+use App\Handlers\ImageUploadHandler;
+
+
+
 class UsersController extends Controller
 {
     public function __construct()
@@ -33,7 +37,7 @@ class UsersController extends Controller
             if ($result) {
                 $data['avatar'] = $result['path'];
             }
-        }
+        }//不允许的情况下返回false
 
         $user->update($data);
         return redirect()->route('users.show', $user->id)->with('success', '个人资料更新成功！');
