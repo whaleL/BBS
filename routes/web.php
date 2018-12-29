@@ -38,3 +38,6 @@ Route::get('email/resend', 'Auth\VerificationController@resend')->name('verifica
 //个人页面 routes
 
 Route::resource('users', 'UsersController', ['only' => ['show', 'update', 'edit']]);
+
+
+//Route::post('upload_image', 'TopicsController@uploadImage')->name('topics.upload_image');
