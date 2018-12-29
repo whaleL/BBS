@@ -17,8 +17,13 @@ class EventServiceProvider extends ServiceProvider
     protected $listen = [
         Registered::class => [
             SendEmailVerificationNotification::class,
+        ],//注册时间的监听器
+
+        \Illuminate\Auth\Events\Verified::class => [
+            \App\Listeners\EmailVerified::class,
         ],
-    ];  //注册时间的监听器
+
+    ];  
 
     /**
      * Register any events for your application.
