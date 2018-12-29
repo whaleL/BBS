@@ -23,7 +23,7 @@ class UsersController extends Controller
 
     public function edit(User $user)
     {
-        //$this->authorize('update', $user);
+        $this->authorize('update', $user);
         return view('users.edit', compact('user'));
     }//编辑个人资料
 
