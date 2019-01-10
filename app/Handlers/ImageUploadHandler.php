@@ -1,8 +1,8 @@
 <?php
 
 namespace App\Handlers;
-
-use Image;
+use Intervention\Image\Facades\Image;
+//use Image;
 
 class ImageUploadHandler
 {

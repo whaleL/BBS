@@ -36,8 +36,8 @@ class UsersController extends Controller
                $data['avatar'] = $result['path'];
           }
        }
-
+       //dd($request->avatar);测试上传头像功能
         $user->update($data);
-        return redirect()->route('users.show', $user->id)->with('success', '个人资料更新成功！');
+        return redirect()->route('users.show', $user->id)->with('success', '更新成功！');
     }
 }
