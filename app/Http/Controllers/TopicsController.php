@@ -3,9 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Models\Topic;
+use App\Models\Category;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\TopicRequest;
+
 
 class TopicsController extends Controller
 {
@@ -17,8 +19,11 @@ class TopicsController extends Controller
 	public function index()
 	{
 		//$topics = Topic::paginate(30); 提前加载后面用到的关联属性，减少多余的SQL查询
-		$topics = Topic::with('user', 'category')->paginate(30);
-		return view('topics.index', compact('topics'));
+		//$topics = Topic::with('user', 'category')->paginate(30);//修改前
+		$topics = $topic->withOrder($request->order)->paginate(20);
+		//$topics = $topic->withOrder($request->order)->paginate(20);  //调用withOrder
+		//$topics = $topic->withOrder($request->order)->paginate(20);
+        return view('topics.index', compact('topics'));
 	}
 
     public function show(Topic $topic)
@@ -27,15 +32,19 @@ class TopicsController extends Controller
     }
 
 	public function create(Topic $topic)
-	{
-		return view('topics.create_and_edit', compact('topic'));
-	}
+    {
+        $categories = Category::all();
+        return view('topics.create_and_edit', compact('topic', 'categories'));
+    }
 
-	public function store(TopicRequest $request)
-	{
-		$topic = Topic::create($request->all());
-		return redirect()->route('topics.show', $topic->id)->with('message', 'Created successfully.');
-	}
+	public function store(TopicRequest $request, Topic $topic)
+    {
+        $topic->fill($request->all());
+        $topic->user_id = Auth::id();
+        $topic->save();
+
+        return redirect()->route('topics.show', $topic->id)->with('success', '帖子创建成功！');
+    }
 
 	public function edit(Topic $topic)
 	{
@@ -58,4 +67,6 @@ class TopicsController extends Controller
 
 		return redirect()->route('topics.index')->with('message', 'Deleted successfully.');
 	}
+
+	
 }
