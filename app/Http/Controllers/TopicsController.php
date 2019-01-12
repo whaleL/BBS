@@ -16,7 +16,8 @@ class TopicsController extends Controller
 
 	public function index()
 	{
-		$topics = Topic::paginate();
+		//$topics = Topic::paginate(30); 提前加载后面用到的关联属性，减少多余的SQL查询
+		$topics = Topic::with('user', 'category')->paginate(30);
 		return view('topics.index', compact('topics'));
 	}
 

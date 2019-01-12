@@ -10501,7 +10501,7 @@ a.text-dark:focus {
   border-color: #e7e7e7;
   background-color: #fff;
   box-shadow: 0px 1px 11px 2px rgba(42, 42, 42, 0.1);
-  border-top: 4px solid #eeae98;
+  border-top: 4px solid #5a50bf;
   margin-bottom: 40px;
   margin-top: 0px;
 }
@@ -10522,9 +10522,10 @@ body {
   position: absolute;
   bottom: 0;
   width: 100%;
+  margin-top: 150px;
   /* Set the fixed height of the footer here */
   height: 60px;
-  background-color: #000;
+  background-color: #181442;
 }
 
 .footer .container {
