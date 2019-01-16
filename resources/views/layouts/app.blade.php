@@ -9,8 +9,8 @@
   <!-- CSRF Token -->
   <meta name="csrf-token" content="{{ csrf_token() }}">
 
-  <title>@yield('title', 'BBS') -WELCOME TO BBS</title>
-
+  <title>@yield('title', 'Q&A') -WELCOME TO BBS</title>
+  <meta name="description" content="@yield('description', '分享你的知识')" />
   <!-- Styles -->
   <link href="{{ mix('css/app.css') }}" rel="stylesheet">
 
