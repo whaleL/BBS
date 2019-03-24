@@ -23,4 +23,12 @@ class TopicObserver
             $topic->slug = app(SlugTranslateHandler::class)->translate($topic->title);
         }
     }
+
+    //珊瑚话题之后删除回复
+    public function deleted(Topic $topic)
+    {
+        \DB::table('replies')->where('topic_id', $topic->id)->delete();
+    }
+    
+
 }
