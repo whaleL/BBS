@@ -12,12 +12,12 @@ class UsersTableSeeder extends Seeder
 
         // 头像假数据
         $avatars = [
-            'https://iocaffcdn.phphub.org/uploads/images/201710/14/1/s5ehp11z6s.png',
-            'https://iocaffcdn.phphub.org/uploads/images/201710/14/1/Lhd1SHqu86.png',
-            'https://iocaffcdn.phphub.org/uploads/images/201710/14/1/LOnMrqbHJn.png',
-            'https://iocaffcdn.phphub.org/uploads/images/201710/14/1/xAuDMxteQy.png',
-            'https://iocaffcdn.phphub.org/uploads/images/201710/14/1/ZqM7iaP4CR.png',
-            'https://iocaffcdn.phphub.org/uploads/images/201710/14/1/NDnzMutoxX.png',
+            'https://i.loli.net/2019/03/26/5c9a2b16325a0.png',
+            'https://i.loli.net/2019/03/26/5c9a2b266e359.png',
+            'https://i.loli.net/2019/03/26/5c9a2b267c55e.png',
+            'https://i.loli.net/2019/03/26/5c9a2b2698bcd.png',
+            'https://i.loli.net/2019/03/26/5c9a2b269ddb5.png',
+            'https://i.loli.net/2019/03/26/5c9a2b26a7f23.png',
         ];
 
         // 生成数据集合
@@ -39,9 +39,10 @@ class UsersTableSeeder extends Seeder
 
         // 单独处理第一个用户的数据
         $user = User::find(1);
-        $user->name = 'Summer';
-        $user->email = 'summer@example.com';
-        $user->avatar = 'https://iocaffcdn.phphub.org/uploads/images/201710/14/1/ZqM7iaP4CR.png';
+        $user->name = 'lof';
+        $user->email = 'lof@example.com';
+        $user->password = '123456';
+        $user->avatar = 'https://i.loli.net/2019/03/26/5c9a2b26b01fb.png';
         $user->save();
 
 

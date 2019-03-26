@@ -18,5 +18,12 @@ class Policy
 	    // if ($user->isSuperAdmin()) {
 	    // 		return true;
 	    // }
+
+        if($user->can('manage_contents')){
+
+            if ($user->can('manage_contenrts')){
+                return true;
+            }
+        }
 	}
 }
