@@ -40,9 +40,8 @@ class UsersTableSeeder extends Seeder
         // 单独处理第一个用户的数据
         $user = User::find(1);
         $user->name = 'lof';
-        $user->email = 'lof@example.com';
-        $user->password = '123456';
-        $user->avatar = 'https://i.loli.net/2019/03/26/5c9a2b26b01fb.png';
+        $user->email = 'kyra10487@foxmail.com';
+        $user->avatar = 'https://i.loli.net/2019/03/26/5c9a2b26a7f23.png';
         $user->save();
 
 
@@ -51,6 +50,11 @@ class UsersTableSeeder extends Seeder
 
         // 将 2 号用户指派为『管理员』
         $user = User::find(2);
+        $user->name = 'admin';
+        $user->email = '719768607@qq.com';
+        $user->avatar = 'https://i.loli.net/2019/03/26/5c9a2b26b01fb.png';
+        $user->save();
+        
         $user->assignRole('Maintainer');
 
     }
