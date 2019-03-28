@@ -2,8 +2,9 @@
   <div class="container">
     <!-- Branding Image -->
     <a class="navbar-brand " href="{{ url('/') }}">
-      BBS
+      Q&A❓
     </a>
+
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -25,17 +26,12 @@
           <li class="nav-item"><a class="nav-link" href="{{ route('login') }}">登录</a></li>
           <li class="nav-item"><a class="nav-link" href="{{ route('register') }}">注册</a></li>
         @else
-          <li class="nav-item">
-            <a class="nav-link mt-1 mr-3 font-weight-bold" href="{{ route('topics.create') }}">
-              <i class="fa fa-plus"></i>
-            </a>
-          </li>
-
           <li class="nav-item notification-badge">
             <a class="nav-link mr-3 badge badge-pill badge-{{ Auth::user()->notification_count > 0 ? 'hint' : 'secondary' }} text-white" href="{{ route('notifications.index') }}">
               {{ Auth::user()->notification_count }}
             </a>
           </li> <!--通知栏-->
+          
 
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -65,11 +61,14 @@
               </a>
             </div>
           </li>
-          <li class="nav-item notification-badge">
-            <a class="nav-link mr-3 badge badge-pill badge-{{ Auth::user()->notification_count > 0 ? 'hint' : 'secondary' }} text-white" href="{{ route('notifications.index') }}">
-              {{ Auth::user()->notification_count }}
+
+
+          <li class="nav-item">
+            <a class="nav-link mt-1 mr-3 font-weight-bold" href="{{ route('topics.create') }}">
+              <i class="fa fa-plus"> 🖊 </i>
             </a>
-          </li> <!--通知栏-->
+          </li>
+
         @endguest
       </ul>
     </div>
