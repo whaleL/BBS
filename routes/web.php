@@ -43,3 +43,7 @@ Route::resource('replies', 'RepliesController', ['only' => ['store', 'destroy']]
 
 Route::resource('notifications', 'NotificationsController', ['only' => ['index']]);
 //通知路由
+
+
+Route::get('permission-denied', 'PagesController@permissionDenied')->name('permission-denied');
+//告诉你没有权限登录
