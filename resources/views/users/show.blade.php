@@ -21,12 +21,23 @@
         {{ count($user->followers) }}
       </strong>粉丝
     </a>
+    <p>
+     @if (Auth::check())
+      @include('users._follow_form')
+    @endif
+  </p>
   </div>
+      
+   
+
+  
+  
       <div class="card-body">
         <h5><strong>注册于</strong></h5>
         <p>{{ $user->created_at->diffForHumans() }}</p>
         <hr>
       </div>
+
     </div>
   </div>
   <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12">
