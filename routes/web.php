@@ -47,3 +47,8 @@ Route::resource('notifications', 'NotificationsController', ['only' => ['index']
 
 Route::get('permission-denied', 'PagesController@permissionDenied')->name('permission-denied');
 //告诉你没有权限登录
+
+
+//粉丝关注者
+Route::get('/users/{user}/followings', 'UsersController@followings')->name('users.followings');
+Route::get('/users/{user}/followers', 'UsersController@followers')->name('users.followers');
