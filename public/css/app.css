@@ -4871,6 +4871,11 @@ input[type=button].btn-block {
   border-bottom-left-radius: calc(0.25rem - 1px);
 }
 
+.card-img-limit{
+  width: 60px;
+  height: 60px;
+}
+
 .card-deck {
   display: flex;
   flex-direction: column;

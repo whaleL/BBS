@@ -2,23 +2,17 @@
 @section('title', $title)
 
 @section('content')
-<div class="offset-md-2 col-md-8">
-  <h2 class="mb-4 text-center">{{ $title }}</h2>
-
-  <div class="list-group list-group-flush">
+<div class="col-md-offset-2 col-md-8">
+  <h1>{{ $title }}</h1>
+  <ul class="users">
     @foreach ($users as $user)
-      <div class="list-group-item">
-        <img class="mr-3" src="{{ $user->gravatar() }}" alt="{{ $user->name }}" width=32>
-        <a href="{{ route('users.show', $user) }}">
-          {{ $user->name }}
-        </a>
-      </div>
-
+      <li class="list-group-item" >
+        <img class="card-img-limit" src="{{ $user->avatar }}" alt="{{ $user->name }}"/>
+        <a href="{{ route('users.show', $user->id )}}" class="username">{{ $user->name }}</a>
+      </li>
     @endforeach
-  </div>
+  </ul>
 
-  <div class="mt-3">
-    {!! $users->render() !!}
-  </div>
+  {!! $users->render() !!}
 </div>
 @stop
