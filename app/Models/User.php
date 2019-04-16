@@ -95,6 +95,17 @@ class User extends Authenticatable implements MustVerifyEmailContract
 
 
 
+   public function feed()
+    {
+        $user_ids = $this->followings->pluck('id')->toArray();
+        array_push($user_ids, $this->id);
+        return Topic::whereIn('user_id', $user_ids)
+                              ->with('user')
+                              ->orderBy('created_at', 'desc');
+    }
+
+
+
     public function isAuthorOf($model)
     {
         return $this->id == $model->user_id;
@@ -108,4 +119,6 @@ class User extends Authenticatable implements MustVerifyEmailContract
         $this->save();
         $this->unreadNotifications->markAsRead();
     }
+
+
 }

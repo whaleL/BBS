@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use App\Http\Requests\UserRequest;
 use App\Handlers\ImageUploadHandler;
+use Auth;
 
 class UsersController extends Controller
 {
@@ -15,8 +16,24 @@ class UsersController extends Controller
     }
 
     public function show(User $user)
+    {   
+        $topic = $user->topics()
+                           ->orderBy('created_at', 'desc')
+                           ->paginate(30);
+         $feed_items = [];
+        if (Auth::check()) {
+            $feed_items = Auth::user()->feed()->paginate(30);
+        }
+        return view('users.show', compact('user','topic','feed_items','topics'));
+    }
+
+    public function home(User $user)//用户的空间
     {
-        return view('users.show', compact('user'));
+        $topics = $user->topics()
+                           ->orderBy('created_at', 'desc')
+                           ->paginate(30);
+        //$title = $topics->title;
+        return view('users.home', compact('user','topics'));
     }
 
     public function edit(User $user) //edit用户接受$user 用户作为传参
@@ -57,4 +74,6 @@ class UsersController extends Controller
         $user->update($data);
         return redirect()->route('users.show', $user->id)->with('success', '更新成功！');
     }
+
+    
 }

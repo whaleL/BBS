@@ -48,7 +48,7 @@
               @endcan
               <a class="dropdown-item" href="{{ route('users.show', Auth::id()) }}">
                 <i class="far fa-user mr-2"></i>
-                个人中心
+                个人主页
               </a>
               <div class="dropdown-divider"></div>
               <a class="dropdown-item" href="{{ route('users.edit', Auth::id()) }}">
