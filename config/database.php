@@ -1,5 +1,7 @@
 <?php
 
+    
+    $db_config = get_db_config();
 return [
 
     /*
@@ -58,11 +60,11 @@ return [
 
         'pgsql' => [
             'driver' => 'pgsql',
-            'host' => env('DB_HOST', '127.0.0.1'),
+            'host' => $db_config['host'],
             'port' => env('DB_PORT', '5432'),
-            'database' => env('DB_DATABASE', 'BBS'),
-            'username' => env('DB_USERNAME', 'homestead'),
-            'password' => env('DB_PASSWORD', 'secret'),
+            'database' => $db_config('DB_DATABASE', 'BBS'),
+            'username' => $db_config('DB_USERNAME', 'homestead'),
+            'password' => $db_config('DB_PASSWORD', 'secret'),
             'charset' => 'utf8',
             'prefix' => '',
             'prefix_indexes' => true,
