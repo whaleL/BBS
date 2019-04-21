@@ -60,11 +60,11 @@ return [
 
         'pgsql' => [
             'driver' => 'pgsql',
-            'host' => $db_config['host'],
+            'host' => 'ec2-23-21-106-241.compute-1.amazonaws.com',
             'port' => env('DB_PORT', '5432'),
-            'database' => $db_config['database'],
-            'username' => $db_config['username'],
-            'password' => $db_config['password'],
+            'database' => 'd17q701rgbgpok',
+            'username' => 'aadhxnpvdynrtn',
+            'password' => '62a9471970a3253b64b552918b8a8866c59374b13f4f8361eaa254022aa621d8',
             'charset' => 'utf8',
             'prefix' => '',
             'prefix_indexes' => true,
