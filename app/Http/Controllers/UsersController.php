@@ -20,11 +20,8 @@ class UsersController extends Controller
         $topic = $user->topics()
                            ->orderBy('created_at', 'desc')
                            ->paginate(30);
-         $feed_items = [];
-        if (Auth::check()) {
-            $feed_items = Auth::user()->feed()->paginate(30);
-        }
-        return view('users.show', compact('user','topic','feed_items','topics'));
+        
+        return view('users.show', compact('user'));
     }
 
     public function home(User $user)//用户的空间
